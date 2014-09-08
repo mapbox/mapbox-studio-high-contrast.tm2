@@ -1,15 +1,15 @@
 // Basic color palette, from which variations will be derived.
 @motorway:          #000;
 @motorway_case:      @land;
-@main:              @motorway;//#999;
+@main:              @motorway;
 @main_case:          @land;
-@street:            #ccc;
+@street:            #888;
 @street_case:        @land;
 @service:		    #ccc;
-@service_case:	     #ccc;//@land;
+@service_case:	     #ccc;
 @path:			    #fff;
 @path_case:		    #ededed;
-@rail: 			    #444;//#bbb;
+@rail: 			    #444;
 @aeroway: 		    #eee;
 
 // ---------------------------------------------------------------------
@@ -23,7 +23,6 @@
 // attachments. The 'case' attachment is 
 
 #road, #bridge, #tunnel {
-  
   // casing/outlines & single lines
   ::case[zoom>=6]['mapnik::geometry_type'=2] {
     [class='motorway'] {
@@ -64,32 +63,17 @@
       [zoom>=15] { line-width:5; }
       [zoom>=16] { line-width:8; }
     }
-    /*
     [class='street'][zoom>=12],[class='street_limited'][zoom>=12] {
       line-join:round;
       #road { line-cap: round; }
       #tunnel { line-dasharray:3,2; }
-      line-color: @street_case;
-      [zoom>=12] { line-width:0.5; }
-      [zoom>=14] { line-width:1; }
-      [zoom>=15] { line-width:4; }
+      line-color: #444;
+      [zoom=12] { line-width: 1; }
+      [zoom=13] { line-width: 1.5; }
+      [zoom=14] { line-width: 2; }
+      [zoom>=15] { line-width: 3.5; line-color: #666;}
       [zoom>=16] { line-width:6.5; }
     }
-    [class='service'][zoom>=15] {
-      line-join:round;
-      #road { line-cap: round; }
-      #tunnel { line-dasharray:3,2; }
-      line-color: @service_case;
-      [zoom>=15] { line-width:1; }
-      [zoom>=16] { line-width:4; }
-    }
-    [class='path'][zoom>=15] {
-      line-color: @path_case;
-      line-dasharray: 2,1;
-      [zoom>=16] { line-width: 1.2; }
-      [zoom>=17] { line-width: 1.5; }
-    }
-    */
   }
   
   // fill/inlines
@@ -120,7 +104,7 @@
       #road, #bridge { line-cap: round; }
       line-color: @main;
       #tunnel { line-color:lighten(@main,4); }
-      [zoom>=7] { line-width:0.5; }//line-color:lighten(@main,40); }
+      [zoom>=7] { line-width:0.5; }
       [zoom>=10] { line-width:1; }
       [zoom>=13] { line-width:1.5; }
       [zoom>=14] { line-width:2.5; }
@@ -128,11 +112,13 @@
       [zoom>=16] { line-width:6; }
     }
     [class='street'][zoom>=12], {
-      line-color: @street;
+      line-color: #fff;
       line-join:round;
       #road, #bridge { line-cap: round; }
-      [zoom>=13] { line-width:2.5; line-color:#eee; }
-      [zoom>=16] { line-width:4; }
+      [zoom=12] { line-width: 0.5; line-color: #fff; }
+      [zoom>=13] { line-width: .75; }
+      [zoom>=14] { line-width: 1.75; }
+      [zoom>=16] { line-width: 4; }
     }
     [class='street_limited'][zoom>=15], {
       line-color: @street;
@@ -147,6 +133,7 @@
       #road, #bridge { line-cap: round; }
       [zoom>=16] { line-width:2; line-color:#fff; }
     }
+    /**/
     [class='major_rail'] {
       line-width: 0.4;
       line-color: @rail;

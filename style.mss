@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------
 // Common Colors
-@water: #fff;//#000;
-@land: 	#fff;
+@water: #fff;
+@land: #fff;
 
 
 Map {
@@ -52,11 +52,10 @@ Map {
 // Water Features 
 
 #water {
-  polygon-fill: #999;//fadeout(@water, 12);
+  polygon-fill: #999;
   polygon-pattern-file: url('img/wave.png');
   polygon-pattern-alignment: global;
-  polygon-pattern-opacity: 1;  
-  //polygon-fill: @water - #111;
+  polygon-pattern-opacity: 1;
   // Map tiles are 256 pixels by 256 pixels wide, so the height 
   // and width of tiling pattern images must be factors of 256. 
   //polygon-pattern-file: url(pattern/wave.png);
@@ -70,7 +69,7 @@ Map {
     // light overlay that is offset slightly south. It also
     // create a slight highlight of the land along the
     // southern edge of any water body.
-    polygon-fill: #fff;//#f0f0ff;
+    polygon-fill: #fff;
     comp-op: soft-light;
     image-filters: agg-stack-blur(2,2);
     polygon-geometry-transform: translate(0,1);
@@ -128,8 +127,6 @@ Map {
     polygon-pattern-opacity: 0.3;
   }
   [class='hospital'][zoom>13],[class='school'][zoom>13] { 
-    //polygon-pattern-file: url('icons/stripe.png');
-	//line-width: 0.5; 
 	polygon-fill: #ccc;
     polygon-opacity: 0.3;
   }
@@ -171,8 +168,6 @@ Map {
     [class='medium_highlight'] {
       polygon-fill: #fff;
       polygon-opacity: 0.2;
-      //polygon-smooth: 1;
-      //polygon-simplify: 40;
       polygon-gamma: 50;
       [zoom>=15][zoom<=16] { polygon-opacity: 0.3; }
       [zoom>=17][zoom<=18] { polygon-opacity: 0.2; }
@@ -209,7 +204,7 @@ Map {
     text-size: 9;
     text-fill: darken(@land,50);
     text-avoid-edges: true;
-    text-halo-fill: @land;//fadeout(@crop,80%);
+    text-halo-fill: @land;
     text-halo-radius: 1.5;
     text-halo-rasterizer: fast;
 }

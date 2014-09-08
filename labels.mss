@@ -82,9 +82,7 @@
   text-face-name: @serif_it;
   text-wrap-width: 60;
   text-wrap-before: true;
-  text-fill: #000;//#fff;//darken(@water, 10);
-  //text-halo-fill: #ccc;
-  //text-halo-radius: 1.5;
+  text-fill: #000;
   text-size: 10;
   text-character-spacing: 1;
   // Some marine labels should be drawn along a line 
@@ -126,11 +124,10 @@
     shield-unlock-image: true;
     shield-name: @name;
     shield-size: 12;
-    //[zoom=7] { shield-size: 14; }
     shield-face-name: @serif_bd;
     shield-placement: point;
     shield-fill: #333;
-    shield-halo-fill: #fff;//fadeout(#fff, 50%);
+    shield-halo-fill: #fff;
     shield-halo-radius: 1;
     shield-halo-rasterizer: fast;
     [ldir='E'] { shield-text-dx: 5; }
@@ -150,7 +147,7 @@
   text-wrap-width: 170;
   text-wrap-before: true;
   text-fill: #333;
-  text-halo-fill: #fff;//fadeout(#fff, 50%);
+  text-halo-fill: #fff;
   text-halo-radius: 1.5;
   text-halo-rasterizer: fast;
   text-size: 10;
@@ -164,10 +161,17 @@
     }
    [zoom>=12] { 
       text-face-name: @serif_bd;
-      text-size: 36;
+      text-size: 24;
       text-wrap-width: 200;
       text-line-spacing: -8;
-      //text-halo-radius: 2;
+      text-halo-radius: 2.5;
+    }
+   [zoom>=14] { 
+      text-face-name: @serif_bd;
+      text-size: 30;
+      text-wrap-width: 250;
+      text-line-spacing: -12;
+      text-halo-radius: 3;
     }
     // Hide at largest scales:
     [zoom>=16] { text-name: "''"; }
@@ -196,8 +200,11 @@
     text-character-spacing: 1;
     text-halo-radius: 2;
     text-halo-fill: fadeout(#fff,80);
-    [zoom>=14] { text-size: 12; }
-    [zoom>=15] { text-size: 13; text-character-spacing: 1; }
+    text-avoid-edges: true;
+    text-wrap-width: 150;
+    text-size: 12;
+    [zoom>=14] { text-size: 14; }
+    [zoom>=15] { text-size: 18; text-wrap-width: 180; text-character-spacing: 1; }
     [zoom>=16] { text-size: 24; text-character-spacing: 2; text-halo-radius: 3; }
   }
 }
@@ -225,14 +232,12 @@
     text-name: @name;
     text-face-name: @serif_md;
     text-size: 9;
-    text-fill: #000;//#666;
+    text-fill: #000;
     text-halo-fill: fadeout(#fff, 50%);
     text-halo-radius: 1.5;
     text-halo-rasterizer: fast;
     text-wrap-width: 70;
     text-line-spacing:	-1.5;
-    //text-transform: uppercase;
-    //text-character-spacing:	0.25;
     // POI labels with an icon need to be offset:
     [maki!=null] { text-dy: 8; }
   }
@@ -260,25 +265,41 @@
 }
 
 #road_label {
-  //[class='motorway'],[class='motorway_link'],[class='motorway']  {
+  [class='main'] {
+    text-name: @name;
+    text-face-name: @sans_ex_bd;
+    text-placement: line;  // text follows line path
+    text-halo-fill: #fff;
+    text-size: 7.5;
+    text-character-spacing: 1;
+    text-avoid-edges: true;  // prevents clipped labels at tile edges
+    text-halo-radius: 1.5;
+    text-halo-rasterizer: fast;
+    text-transform: uppercase;
+    text-min-distance: 70;
+    text-allow-overlap: false;
+    }
   [class='street'], [class='street_limited'] {
   text-name: @name;
-  text-placement: line;  // text follows line path
-  text-face-name: @sans_news;
+  text-placement: line;
+  text-face-name: @serif_bd;
   text-transform: uppercase;
-  text-fill: #000;//#888;//#000;
-  text-halo-fill: #ddd;//#fff;//fadeout(#fff, 50%);
-  text-halo-radius: 1;
+  text-fill: #666;
+  text-halo-fill: #eee;
+  text-halo-radius: 0.75;
   text-halo-rasterizer: fast;
-  text-size: 8;
-  text-character-spacing: 1;
-  text-avoid-edges: true;  // prevents clipped labels at tile edges
-  [zoom>=15] { text-size: 10; }
+  text-size: 7;
+  text-character-spacing: 1.2;
+  text-avoid-edges: true;
+  text-min-distance: 70;
+  text-allow-overlap: false;
+  [zoom>=15] { 
+      text-size: 8; 
+      text-halo-radius: 1;
+      text-halo-fill: #fff;
+      }
     }
-  [type='service'],[type='driveway'],[type='path'] {
-    
-    }
-}
+  }
 
 
 // ---------------------------------------------------------------------
@@ -290,11 +311,11 @@
   [zoom>=17] {
     text-name: @name;
     text-face-name: @serif_it;
-    text-fill: #000;//#fff;//darken(@water, 15);
+    text-fill: #000;
     text-size: 12;
     text-wrap-width: 100;
     text-wrap-before: true;
-    text-halo-fill: #888;//fadeout(#fff, 75%);
+    text-halo-fill: #888;
     text-halo-radius: 0.5;
     text-character-spacing: 2;
   }
