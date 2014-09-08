@@ -26,13 +26,21 @@
 @serif_bd: 'Meta Serif Offc Pro Bold', @fallback;
 @serif_it: 'Meta Serif Offc Pro Italic', @fallback;
 //sans
-@sans: 'Clan Offc Pro Book', @fallback;
-@sans_bd: 'Clan Offc Pro Bold', @fallback;
+@sans: 'Meta Offc Pro Normal', @fallback;
+@sans_md: 'Meta Offc Pro Medium', @fallback;
+@sans_bd: 'Meta SC Offc Pro Bold', @fallback;
+@sans_bk: 'Meta SC Offc Pro Black', @fallback;
+@sans_it: 'Meta SC Offc Pro Normal Italic', @fallback;
+@sans_it_bd: 'Meta SC Offc Pro Bold Italic', @fallback;
+
+/*
+@sans: 'Meta Offc Pro Normal', @fallback;
+@sans_bd: 'Meta Offc Pro Medium', @fallback;
 @sans_ex: 'Clan Offc Pro Extd Book', @fallback;
 @sans_ex_bd: 'Clan Offc Pro Extd Medium', @fallback;
 @sans_news: 'Clan Offc Pro Extd News', @fallback;
 @sans_news_it: 'Clan Offc Pro Narrow News Italic', @fallback;
-
+*/
 
 // ---------------------------------------------------------------------
 // Countries
@@ -195,17 +203,26 @@
   [type='suburb'],
   [type='neighbourhood'] {
     text-fill: #666;
-    text-face-name:	@sans_news_it;
+    text-face-name:	@sans_it;
     text-transform: uppercase;
     text-character-spacing: 1;
     text-halo-radius: 2;
-    text-halo-fill: fadeout(#fff,80);
+    text-halo-fill: #fff;//fadeout(#fff,80);
     text-avoid-edges: true;
-    text-wrap-width: 150;
-    text-size: 12;
-    [zoom>=14] { text-size: 14; }
-    [zoom>=15] { text-size: 18; text-wrap-width: 180; text-character-spacing: 1; }
-    [zoom>=16] { text-size: 24; text-character-spacing: 2; text-halo-radius: 3; }
+    text-wrap-width: 100;
+    text-size: 10;
+    [zoom=13] {
+      text-size: 10;
+      text-halo-radius: 1.5;
+      }
+    [zoom>=14] { text-size: 12; text-halo-radius: 1.5; }
+    [zoom>=15] { 
+      text-size: 14; 
+      text-wrap-width: 180; 
+      text-character-spacing: 1; 
+      text-halo-radius: 2;
+    }
+    [zoom>=16] { text-size: 18; text-character-spacing: 2; text-halo-radius: 2; }
   }
 }
 
@@ -231,10 +248,10 @@
   ::label {
     text-name: @name;
     text-face-name: @serif_md;
-    text-size: 9;
-    text-fill: #000;
+    text-size: 8;
+    text-fill: #666;
     text-halo-fill: fadeout(#fff, 50%);
-    text-halo-radius: 1.5;
+    text-halo-radius: 1;
     text-halo-rasterizer: fast;
     text-wrap-width: 70;
     text-line-spacing:	-1.5;
@@ -265,26 +282,27 @@
 }
 
 #road_label {
-  [class='main'] {
+  [class='main'][zoom>=14] {
     text-name: @name;
-    text-face-name: @sans_ex_bd;
+    text-face-name: @sans_bd;
     text-placement: line;  // text follows line path
     text-halo-fill: #fff;
-    text-size: 7.5;
+    text-size: 7;
     text-character-spacing: 1;
     text-avoid-edges: true;  // prevents clipped labels at tile edges
-    text-halo-radius: 1.5;
+    text-halo-radius: 1;
     text-halo-rasterizer: fast;
     text-transform: uppercase;
-    text-min-distance: 70;
+    text-min-distance: 100;
     text-allow-overlap: false;
+    text-fill: #333;
     }
-  [class='street'], [class='street_limited'] {
+  [class='street'][zoom>=14], [class='street_limited'][zoom>=15] {
   text-name: @name;
   text-placement: line;
   text-face-name: @serif_bd;
   text-transform: uppercase;
-  text-fill: #666;
+  text-fill: #999;
   text-halo-fill: #eee;
   text-halo-radius: 0.75;
   text-halo-rasterizer: fast;

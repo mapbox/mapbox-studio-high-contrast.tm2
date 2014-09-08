@@ -121,7 +121,7 @@ Map {
 // ---------------------------------------------------------------------
 // Landuse areas 
 
-#landuse {
+#landuse[zoom>=11] {
   [class='park'], [class='cemetery'] { 
     polygon-pattern-file: url('img/halftone2.png');
     polygon-pattern-opacity: 0.3;
