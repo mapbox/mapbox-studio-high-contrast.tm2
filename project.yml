@@ -1,5 +1,5 @@
 _prefs: 
-  saveCenter: true
+  saveCenter: false
 _properties: 
   bridge: 
     "group-by": layer
@@ -10,8 +10,8 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -103.71093749999999
-  - 38.34165619279595
+  - -95.09765625
+  - 38.272688535980976
   - 4
 description: ''
 format: "png8:m=h"
