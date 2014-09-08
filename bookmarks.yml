@@ -1,0 +1,21 @@
+- place_name: Milton, 58260, North Dakota, United States
+  zoom: 8
+  center: 
+    - 48.55479616922359
+    - -97.9705810546875
+  tags: 
+    - userbookmark
+- place_name: Curtis, 69025, Nebraska, United States
+  zoom: 5
+  center: 
+    - 40.79717741518769
+    - -100.45898437499999
+  tags: 
+    - userbookmark
+- place_name: Bayern, Germany
+  zoom: 5
+  center: 
+    - 47.916342040161155
+    - 12.2607421875
+  tags: 
+    - userbookmark
