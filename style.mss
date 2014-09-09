@@ -53,7 +53,7 @@ Map {
   polygon-fill: #999;
   polygon-pattern-file: url('img/patterns/halftone2.png');
   polygon-pattern-alignment: global;
-  polygon-pattern-opacity: 1;
+  polygon-pattern-opacity: 0.3;
   // Map tiles are 256 pixels by 256 pixels wide, so the height 
   // and width of tiling pattern images must be factors of 256. 
   //polygon-pattern-file: url(pattern/wave.png);

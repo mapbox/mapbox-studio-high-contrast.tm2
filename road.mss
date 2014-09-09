@@ -113,8 +113,8 @@
       [zoom>=11] { line-width: 0.75; }
       [zoom=12] { line-width: 0.75; line-color: lighten(@main,30);}
       [zoom=13] { line-width: 1.5; line-color: lighten(@main,15);}
-      [zoom=14] { line-width: 3; line-color: lighten(@main,30); }
-      [zoom=15] { line-width: 4.5; line-color: lighten(@main,30);}
+      [zoom=14] { line-width: 3; line-color: lighten(@main,15); }
+      [zoom=15] { line-width: 4.5; line-color: lighten(@main,20);}
       [zoom>=16] { line-width: 8; line-color: lighten(@main,20);}
     }
     [class='street'][zoom>=12], {

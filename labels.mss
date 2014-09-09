@@ -160,7 +160,7 @@
   text-halo-radius: 1.5;
   text-halo-rasterizer: fast;
   text-size: 10;
-  [type='city'][zoom>=8][zoom<=15] {
+  [type='city'][zoom>=8][zoom<=22] {
   	text-face-name: @serif_md;
     text-size: 16;
     text-fill: #555;
@@ -236,32 +236,35 @@
     text-transform: uppercase;
     text-character-spacing: 1;
     text-halo-radius: 2;
-    text-halo-fill: #fff;
+    text-halo-fill: fadeout(#fff,50);
     text-avoid-edges: true;
     text-wrap-width: 140;
     text-size: 10;
     text-allow-overlap: false;
     [zoom=13] {
-      text-size: 10;
-      text-halo-radius: 1.5;
+      text-size: 11;
+      text-halo-radius: 2;
       text-fill: #000;
       text-face-name:	@sans_it_md;
+      text-line-spacing: -4;
       }
     [zoom=14] { 
-      text-size: 13; 
-      text-halo-radius: 1.75; 
+      text-size: 14; 
+      text-halo-radius: 2; 
       text-fill: #000;
-      text-line-spacing: -3;
-      text-face-name:	@sans_it;
+      text-line-spacing: -4;
+      text-face-name: @sans_it_md;
       text-wrap-width: 180;
     }
     [zoom>=15] { 
-      text-size: 16; 
+      text-size: 18; 
       text-wrap-width: 180; 
       text-character-spacing: 1; 
-      text-halo-radius: 2;
+      text-halo-radius: 2.5;
       text-fill: #000;
       text-line-spacing: -5;
+      text-halo-fill: fadeout(#fff,30);
+      text-face-name: @sans_it_md;
     }
     [zoom>=16] { 
       text-size: 18; 
@@ -272,57 +275,49 @@
   }
 }
 
-
+/**/
 // ---------------------------------------------------------------------
 // Points of interest
-#poi_label[zoom=14][scalerank<=1],
-#poi_label[zoom=15][scalerank<=2],
-#poi_label[zoom=16][scalerank<=3],
-#poi_label[zoom=17][scalerank<=4][localrank<=2],
-#poi_label[zoom>=18] {
-  // Separate icon and label attachments are created to ensure that
-  // all icon placement happens first, then labels are placed only
-  // if there is still room.
-  ::icon[maki!=null] {
-    // The [maki] field values match a subset of Maki icon names, so we
-    // can use that in our url expression.
-    // Not all POIs have a Maki icon assigned, so we limit this section
-    // to those that do. See also <https://www.mapbox.com/maki/>
-    marker-fill:#666;
-    marker-file:url('img/maki/[maki]-12.svg');
-  }
-  ::label {
+#poi_label[maki=''] { opacity:1; } // hack for mapnik#1952
+
+#poi_label[maki='park'][scalerank<=2],
+#poi_label[maki='airport'][scalerank<=2],
+#poi_label[maki='airfield'][scalerank<=2],
+#poi_label[maki='rail'][scalerank<=2],
+#poi_label[maki='school'][scalerank<=2],
+#poi_label[scalerank='hospital'][scalerank<=2] { 
     text-name: @name;
-    text-face-name: @serif_md;
-    text-size: 8;
-    text-fill: #666;
-    text-halo-fill: fadeout(#fff, 50%);
+    text-face-name: @serif_bd;
+    text-size: 9;
+    text-fill: #333;
+    text-halo-fill: fadeout(#fff, 30%);
     text-halo-radius: 1;
     text-halo-rasterizer: fast;
-    text-wrap-width: 70;
-    text-line-spacing:	-1.5;
+    text-min-distance: 50;
+    text-wrap-width: 60;
+    text-line-spacing:	-2;
     text-allow-overlap: false;
     // POI labels with an icon need to be offset:
     [maki!=null] { text-dy: 8; }
     [zoom>=13] {
-      text-size: 9;
+      text-size: 10;
       text-line-spacing: -2;
-      text-fill: #888;
       }
     [zoom=15] {
-      text-size: 9;
+      text-size: 12;
       text-line-spacing: -2;
+      text-fill: #444;
       }
     [zoom>=16] {
-      text-size: 11;
+      text-size: 14;
       text-line-spacing: -2;
       }
     [zoom>=17] {
-      text-size: 11;
+      text-size: 16;
       text-line-spacing: -2;
-      }
   }
 }
+
 
 
 // ---------------------------------------------------------------------
@@ -355,27 +350,27 @@
 #road_label {
   [class='main'][zoom>=14] {
     text-name: @name;
-    text-face-name: @sans_md;
+    text-face-name: @sans_bd;
     text-placement: line;  // text follows line path
     text-halo-fill: #666;
-    text-size: 8;
+    text-size: 10;
     text-character-spacing: 1;
     text-avoid-edges: true;  // prevents clipped labels at tile edges
     text-halo-radius: 1;
     text-halo-rasterizer: fast;
     text-transform: uppercase;
     text-min-distance: 100;
-    text-allow-overlap: false;
+    //text-allow-overlap: false;
     text-fill: #333;
     text-min-padding: 5;
     [zoom=14] { 
-      text-size: 8;
-      text-halo-radius: 1;
+      text-size: 10;
+      text-halo-radius: 1.5;
       text-fill: #fff;
       text-halo-fill: #444;
       }
     [zoom=15] { 
-      text-size: 10;
+      text-size: 12;
       text-halo-radius: 1;
       text-fill: #fff;
       text-halo-fill: #444;
@@ -402,13 +397,13 @@
   text-halo-fill: #eee;
   text-halo-radius: 0.75;
   text-halo-rasterizer: fast;
-  text-size: 7;
+  text-size: 8;
   text-character-spacing: 1.2;
   text-avoid-edges: true;
   text-min-distance: 70;
   text-allow-overlap: false;
   [zoom>=15] { 
-      text-size: 8; 
+      text-size: 10; 
       text-halo-radius: 1;
       text-halo-fill: #fff;
       }
