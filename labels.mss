@@ -31,7 +31,7 @@
 @sans_bd: 'Meta SC Offc Pro Bold', @fallback;
 @sans_bk: 'Meta SC Offc Pro Black', @fallback;
 @sans_it: 'Meta SC Offc Pro Normal Italic', @fallback;
-@sans_it_bd: 'Meta SC Offc Pro Bold Italic', @fallback;
+@sans_it_md: 'Meta Offc Pro Medium Italic', @fallback;
 @sans_it_bd: 'Meta SC Offc Pro Bold Italic', @fallback;
 @sans-shield: 'Kievit SC Offc Pro Black', @fallback;
 /*
@@ -216,20 +216,28 @@
       text-size: 10;
       text-halo-radius: 1.5;
       text-fill: #000;
+      text-face-name:	@sans_it_md;
       }
     [zoom=14] { 
-      text-size: 15; 
+      text-size: 13; 
       text-halo-radius: 2; 
-      text-fill: #666;
+      text-fill: #333;
       text-line-spacing: -9;
+      text-face-name:	@sans_it;
     }
     [zoom>=15] { 
-      text-size: 14; 
+      text-size: 16; 
       text-wrap-width: 180; 
       text-character-spacing: 1; 
       text-halo-radius: 2;
+      text-fill: #888;
+      text-line-spacing: -9;
     }
-    [zoom>=16] { text-size: 18; text-character-spacing: 2; text-halo-radius: 2; }
+    [zoom>=16] { 
+      text-size: 18; 
+      text-character-spacing: 2; 
+      text-halo-radius: 2; 
+    }
   }
 }
 
@@ -322,15 +330,17 @@
     text-fill: #333;
     text-min-padding: 5;
     [zoom=14] { 
-      text-size: 10.5;
-      text-halo-radius: 1.75;
+      text-size: 9;
+      text-halo-radius: 1;
+      text-fill: #555;
       }
     [zoom=15] { 
-      text-size: 12;
-      text-halo-radius: 2;
+      text-size: 11;
+      text-halo-radius: 1.25;
+      text-fill: #444;
       }
     [zoom>=16] { 
-      text-size: 14;      
+      text-size: 13;      
       text-halo-radius: 2;
       }
     }
