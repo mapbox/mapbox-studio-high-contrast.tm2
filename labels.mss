@@ -28,20 +28,11 @@
 //sans
 @sans: 'Meta Offc Pro Normal', @fallback;
 @sans_md: 'Meta Offc Pro Medium', @fallback;
-@sans_bd: 'Meta SC Offc Pro Bold', @fallback;
-@sans_bk: 'Meta SC Offc Pro Black', @fallback;
-@sans_it: 'Meta SC Offc Pro Normal Italic', @fallback;
+@sans_bd: 'Meta Offc Pro Bold', @fallback;
+@sans_bk: 'Meta Offc Pro Black', @fallback;
+@sans_it: 'Meta Offc Pro Normal Italic', @fallback;
 @sans_it_md: 'Meta Offc Pro Medium Italic', @fallback;
-@sans_it_bd: 'Meta SC Offc Pro Bold Italic', @fallback;
-@sans-shield: 'Kievit SC Offc Pro Black', @fallback;
-/*
-@sans: 'Meta Offc Pro Normal', @fallback;
-@sans_bd: 'Meta Offc Pro Medium', @fallback;
-@sans_ex: 'Clan Offc Pro Extd Book', @fallback;
-@sans_ex_bd: 'Clan Offc Pro Extd Medium', @fallback;
-@sans_news: 'Clan Offc Pro Extd News', @fallback;
-@sans_news_it: 'Clan Offc Pro Narrow News Italic', @fallback;
-*/
+@sans_it_bd: 'Meta Offc Pro Bold Italic', @fallback;
 
 // ---------------------------------------------------------------------
 // Countries
@@ -72,7 +63,7 @@
   [zoom>=5][scalerank=2],
   [zoom>=6][scalerank=3],
   [zoom>=7][scalerank>3] {
-    text-size: 18;
+    text-size: 24;
   }
 }
 
@@ -129,7 +120,7 @@
   // to use shaves a bit off the final project.xml size
   [ldir='N'],[ldir='S'],[ldir='E'],[ldir='W'],
   [ldir='NE'],[ldir='SE'],[ldir='SW'],[ldir='NW'] {
-    shield-file: url('img/dot.png');
+    shield-file: url('img/dot-8.svg');
     shield-unlock-image: true;
     shield-name: @name;
     shield-size: 12;
@@ -147,6 +138,15 @@
     [ldir='SE'] { shield-text-dx: 4; shield-text-dy: 4; }
     [ldir='SW'] { shield-text-dx: -4; shield-text-dy: 4; }
     [ldir='NW'] { shield-text-dx: -4; shield-text-dy: -4; }
+    [zoom=5]{
+      shield-size: 14;
+      }
+    [zoom=6]{
+      shield-size: 15;
+      }
+    [zoom=7]{
+      shield-size: 16;
+      }
   }
 }
 
@@ -162,15 +162,44 @@
   text-size: 10;
   [type='city'][zoom>=8][zoom<=15] {
   	text-face-name: @serif_md;
-    text-size: 14;
-   [zoom>=10] { 
-      text-size: 16;
+    text-size: 16;
+    text-fill: #555;
+   [zoom=8] { 
+      text-fill: #000;
+      text-face-name: @serif_bd;
+      text-size: 20;
       text-wrap-width: 140;
       text-character-spacing: 0;
+      text-halo-radius: 2;
     }
-   [zoom>=12] { 
+   [zoom=9] { 
+      text-fill: #000;
       text-face-name: @serif_bd;
       text-size: 24;
+      text-wrap-width: 140;
+      text-character-spacing: 0;
+      text-halo-radius: 2;
+    }
+   [zoom=10] { 
+      text-fill: #000;
+      text-face-name: @serif_bd;
+      text-size: 26;
+      text-wrap-width: 140;
+      text-character-spacing: 0;
+      text-halo-radius: 2;
+    }
+   [zoom=11] { 
+      text-fill: #000;
+      text-face-name: @serif_bd;
+      text-size: 28;
+      text-wrap-width: 140;
+      text-character-spacing: 0;
+      text-halo-radius: 2;
+    }
+   [zoom>=12] { 
+      text-fill: #000;
+      text-face-name: @serif_bd;
+      text-size: 28;
       text-wrap-width: 200;
       text-line-spacing: -8;
       text-halo-radius: 2.5;
@@ -196,7 +225,6 @@
   }
   [type='village'] {
     text-size: 12;
-    //[zoom>=12] { text-size: 14; }
     [zoom>=14] { text-size: 14; }
     [zoom>=16] { text-size: 18; }
   }
@@ -210,8 +238,10 @@
     text-halo-radius: 2;
     text-halo-fill: #fff;//fadeout(#fff,80);
     text-avoid-edges: true;
-    text-wrap-width: 100;
+    text-wrap-width: 140;
     text-size: 10;
+    text-allow-overlap: false;
+    //text-min-padding: 5;
     [zoom=13] {
       text-size: 10;
       text-halo-radius: 1.5;
@@ -222,8 +252,9 @@
       text-size: 13; 
       text-halo-radius: 2; 
       text-fill: #333;
-      text-line-spacing: -9;
+      text-line-spacing: -3;
       text-face-name:	@sans_it;
+      text-wrap-width: 180;
     }
     [zoom>=15] { 
       text-size: 16; 
@@ -231,7 +262,7 @@
       text-character-spacing: 1; 
       text-halo-radius: 2;
       text-fill: #888;
-      text-line-spacing: -9;
+      text-line-spacing: -5;
     }
     [zoom>=16] { 
       text-size: 18; 
@@ -258,7 +289,7 @@
     // Not all POIs have a Maki icon assigned, so we limit this section
     // to those that do. See also <https://www.mapbox.com/maki/>
     marker-fill:#666;
-    marker-file:url('icon/[maki]-12.svg');
+    marker-file:url('img/maki/[maki]-12.svg');
   }
   ::label {
     text-name: @name;
@@ -277,10 +308,20 @@
       text-line-spacing: -2;
       text-fill: #000;
       }
-    [zoom>=18] {
-      text-size: 14;
+    [zoom=15] {
+      text-size: 10;
       text-line-spacing: -2;
-      text-fill: #000;
+      text-fill: #666;
+      }
+    [zoom>=16] {
+      text-size: 11;
+      text-line-spacing: -2;
+      text-fill: #666;
+      }
+    [zoom>=17] {
+      text-size: 12;
+      text-line-spacing: -2;
+      text-fill: #666;
       }
   }
 }
@@ -294,12 +335,12 @@
   // Custom shield png files can be created using make_shields.sh
   // in _src folder
   shield-name: [ref];
-  shield-face-name: @sans-shield;
+  shield-face-name: @sans_md;
   shield-fill: #fff;
   shield-min-distance: 50;
   shield-min-padding: 12;  // prevents clipped shields at tile edges
   shield-size: 9;
-  shield-file: url('shield/motorway_sm_[reflen].png');
+  shield-file: url('img/shield/motorway_sm_[reflen].svg');
   [zoom>=10] {
     shield-min-distance: 20;
     }
@@ -308,7 +349,7 @@
     }
   [zoom>=15] {
     shield-size: 12;
-    shield-file: url('shield/motorway_lg_[reflen].png');
+    shield-file: url('img/shield/motorway_lg_[reflen].svg');
     shield-min-distance: 80;
   }
 }
@@ -316,7 +357,7 @@
 #road_label {
   [class='main'][zoom>=14] {
     text-name: @name;
-    text-face-name: @sans_bd;
+    text-face-name: @sans_md;//@sans_bd;
     text-placement: line;  // text follows line path
     text-halo-fill: #fff;
     text-size: 8;
@@ -330,13 +371,13 @@
     text-fill: #333;
     text-min-padding: 5;
     [zoom=14] { 
-      text-size: 9;
+      text-size: 8.5;
       text-halo-radius: 1;
       text-fill: #555;
       }
     [zoom=15] { 
       text-size: 11;
-      text-halo-radius: 1.25;
+      text-halo-radius: 1.5;
       text-fill: #444;
       }
     [zoom>=16] { 

@@ -10,7 +10,6 @@ Map {
 
 // ---------------------------------------------------------------------
 // Political boundaries
-
 #admin {
 	line-width: 0.2;
 	line-color: #000;
@@ -50,10 +49,9 @@ Map {
 
 // ---------------------------------------------------------------------
 // Water Features 
-
 #water {
   polygon-fill: #999;
-  polygon-pattern-file: url('img/wave.png');
+  polygon-pattern-file: url('img/patterns/halftone2.png');
   polygon-pattern-alignment: global;
   polygon-pattern-opacity: 1;
   // Map tiles are 256 pixels by 256 pixels wide, so the height 
@@ -223,7 +221,7 @@ Map {
   }
   [zoom>=16] {
 	line-width: 0.5; 
-	polygon-pattern-file: url('img/stripe_sm.png');
+	polygon-pattern-file: url('img/patterns/stripe_sm.png');
     polygon-pattern-opacity: 0.2;
   }
   ::overlay {
