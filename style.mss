@@ -119,8 +119,6 @@ Map {
 // Landuse areas 
 #landuse[zoom>=11] {
   [class='park'], [class='cemetery'] { 
-    //polygon-pattern-file: url('img/halftone2.png');
-    //polygon-pattern-opacity: 0.3;
     polygon-fill: #ccc;
     polygon-opacity: 0.45;
   }
@@ -130,9 +128,7 @@ Map {
   }
   [class='wood'] { 
     polygon-fill: #ccc;
-    polygon-opacity: 0.6;
-    //polygon-pattern-file: url('img/halftone2-transparent.png');
-  }
+    polygon-opacity: 0.6;  }
     ::overlay {
     // Landuse classes look better as a transparent overlay.
     opacity: 0.05;
@@ -150,15 +146,7 @@ Map {
     comp-op: hard-light;
     polygon-clip: false;
     polygon-simplify: 7;
-    [class='full_shadow'], //{
-      /*
-      polygon-fill: #000;
-      polygon-opacity: 0.22;
-      [zoom>=15][zoom<=16] { polygon-opacity: 0.175; }
-      [zoom>=17][zoom<=18] { polygon-opacity: 0.05; }
-      [zoom>=18] { polygon-opacity: 0.025; }
-    }*/
-    [class='medium_shadow'] {
+    [class='full_shadow'], [class='medium_shadow'] {
       polygon-fill: #000;
       polygon-opacity: 0.12;
       [zoom>=15][zoom<=16] { polygon-opacity: 0.095; }
@@ -173,15 +161,6 @@ Map {
       [zoom>=17][zoom<=18] { polygon-opacity: 0.2; }
       [zoom>=18] { polygon-opacity: 0.1; }
     }
-    /*
-    [class='full_highlight'] {
-      polygon-fill: #fff;
-      polygon-opacity: 0.25;
-      [zoom>=15][zoom<=16] { polygon-opacity: 0.3; }
-      [zoom>=17][zoom<=18] { polygon-opacity: 0.2; }
-      [zoom>=18] { polygon-opacity: 0.1; }
-    }
-    */
   }
   ::1 { image-filters: agg-stack-blur(2,2); }
   ::2 { image-filters: agg-stack-blur(8,8); }

@@ -47,7 +47,7 @@
   text-wrap-width: 100;
   text-wrap-before: true;
   text-fill: #000;
-  text-halo-fill: #fff;//fadeout(#fff,80%);
+  text-halo-fill: #fff;
   text-halo-radius: 1.5;
   text-halo-rasterizer: fast;
   text-line-spacing: -4;
@@ -236,12 +236,11 @@
     text-transform: uppercase;
     text-character-spacing: 1;
     text-halo-radius: 2;
-    text-halo-fill: #fff;//fadeout(#fff,80);
+    text-halo-fill: #fff;
     text-avoid-edges: true;
     text-wrap-width: 140;
     text-size: 10;
     text-allow-overlap: false;
-    //text-min-padding: 5;
     [zoom=13] {
       text-size: 10;
       text-halo-radius: 1.5;
@@ -261,7 +260,7 @@
       text-wrap-width: 180; 
       text-character-spacing: 1; 
       text-halo-radius: 2;
-      text-fill: #000;//#888;
+      text-fill: #000;
       text-line-spacing: -5;
     }
     [zoom>=16] { 
@@ -313,17 +312,14 @@
     [zoom=15] {
       text-size: 9;
       text-line-spacing: -2;
-      //text-fill: #666;
       }
     [zoom>=16] {
       text-size: 11;
       text-line-spacing: -2;
-      //text-fill: #666;
       }
     [zoom>=17] {
       text-size: 11;
       text-line-spacing: -2;
-      //text-fill: #666;
       }
   }
 }
@@ -359,9 +355,9 @@
 #road_label {
   [class='main'][zoom>=14] {
     text-name: @name;
-    text-face-name: @sans_md;//@sans_bd;
+    text-face-name: @sans_md;
     text-placement: line;  // text follows line path
-    text-halo-fill: #666;//fadeout(#fff,50);
+    text-halo-fill: #666;
     text-size: 8;
     text-character-spacing: 1;
     text-avoid-edges: true;  // prevents clipped labels at tile edges
@@ -375,25 +371,25 @@
     [zoom=14] { 
       text-size: 8;
       text-halo-radius: 1;
-      text-fill: #fff;//#555;
-      text-halo-fill: #444;//fadeout(#fff,50);
+      text-fill: #fff;
+      text-halo-fill: #444;
       }
     [zoom=15] { 
       text-size: 10;
       text-halo-radius: 1;
-      text-fill: #fff;//#444;
-      text-halo-fill: #444;//fadeout(#fff,80);
+      text-fill: #fff;
+      text-halo-fill: #444;
       }
     [zoom=16] { 
       text-size: 13;      
       text-halo-radius: 1.5;
-      text-halo-fill: #333;//fadeout(#fff,50);
+      text-halo-fill: #333;
       text-fill: #fff;
       }
      [zoom>=17] { 
       text-size: 13;      
       text-halo-radius: 1;
-      text-halo-fill: #333;//fadeout(#fff,50);
+      text-halo-fill: #333;
       text-fill: #fff;
       }
     }
