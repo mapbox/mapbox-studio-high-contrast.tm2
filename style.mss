@@ -97,7 +97,6 @@ Map {
 
 // ---------------------------------------------------------------------
 // Aeroways 
-
 #aeroway [zoom>=12] {
   ['mapnik::geometry_type'=2] {
     line-color: @land * 0.96;
@@ -118,7 +117,6 @@ Map {
 
 // ---------------------------------------------------------------------
 // Landuse areas 
-
 #landuse[zoom>=11] {
   [class='park'], [class='cemetery'] { 
     //polygon-pattern-file: url('img/halftone2.png');
@@ -144,21 +142,22 @@ Map {
 // ---------------------------------------------------------------------
 // Terrain //
 #hillshade {
-  ::0[zoom<=13],
-  ::1[zoom=14],
+  ::0[zoom<=13][zoom>2],
+  ::1[zoom=14][zoom>2],
   ::2[zoom>=15][zoom<=16],
   ::3[zoom>=17][zoom<=18],
   ::4[zoom>=19] {
     comp-op: hard-light;
     polygon-clip: false;
     polygon-simplify: 7;
-    [class='full_shadow'] {
+    [class='full_shadow'], //{
+      /*
       polygon-fill: #000;
       polygon-opacity: 0.22;
       [zoom>=15][zoom<=16] { polygon-opacity: 0.175; }
       [zoom>=17][zoom<=18] { polygon-opacity: 0.05; }
       [zoom>=18] { polygon-opacity: 0.025; }
-    }
+    }*/
     [class='medium_shadow'] {
       polygon-fill: #000;
       polygon-opacity: 0.12;
@@ -174,14 +173,15 @@ Map {
       [zoom>=17][zoom<=18] { polygon-opacity: 0.2; }
       [zoom>=18] { polygon-opacity: 0.1; }
     }
+    /*
     [class='full_highlight'] {
       polygon-fill: #fff;
       polygon-opacity: 0.25;
       [zoom>=15][zoom<=16] { polygon-opacity: 0.3; }
       [zoom>=17][zoom<=18] { polygon-opacity: 0.2; }
       [zoom>=18] { polygon-opacity: 0.1; }
-
     }
+    */
   }
   ::1 { image-filters: agg-stack-blur(2,2); }
   ::2 { image-filters: agg-stack-blur(8,8); }

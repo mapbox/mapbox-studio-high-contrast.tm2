@@ -55,6 +55,7 @@
       line-color: @main_case;
       #road { line-cap: round; }
       #tunnel { line-dasharray:3,2; }
+      [zoom=7] { line-width: 0; }
       [zoom>=12] { line-width: 0; }
       [zoom=13] { line-width:2.5; }
       [zoom=14] { line-width:4; }
@@ -66,12 +67,14 @@
       #road { line-cap: round; }
       #tunnel { line-dasharray:3,2; }
       line-color: #444;
+      [zoom=7] { line-width: 0; }
       [zoom=12] { line-width: 0; }
       [zoom=13] { line-width: 0; }
       [zoom=14] { line-width: 0; }
       [zoom>=15] { line-width: 5; line-color: #888;}
-      [zoom>=16] { line-width: 11; }
+      [zoom>=16] { line-width: 10; }
     }
+      
   }
   
   // fill/inlines
@@ -105,13 +108,14 @@
       line-color: lighten(@main,15);
       #tunnel { line-color:lighten(@main,25); }
       [zoom=6] { line-width: 0.5; line-color: lighten(@main,45);}
-      [zoom=7] { line-width: 0.5; }
+      [zoom>=7] { line-width: 0.25; }
+      [zoom>=9] { line-width: 0.5; line-color: lighten(@main,45);}
       [zoom>=11] { line-width: 0.75; }
-      [zoom=12] { line-width: 0.75; }
-      [zoom=13] { line-width: 1.5; }
-      [zoom=14] { line-width: 2.75; line-color: lighten(@main,35); }
-      [zoom=15] { line-width: 4.5; }
-      [zoom>=16] { line-width:6; }
+      [zoom=12] { line-width: 0.75; line-color: lighten(@main,30);}
+      [zoom=13] { line-width: 1.5; line-color: lighten(@main,15);}
+      [zoom=14] { line-width: 3; line-color: lighten(@main,30); }
+      [zoom=15] { line-width: 4.5; line-color: lighten(@main,30);}
+      [zoom>=16] { line-width: 8; line-color: lighten(@main,20);}
     }
     [class='street'][zoom>=12], {
       line-color: #ccc;//#fff;
@@ -126,14 +130,14 @@
       line-color: @street;
       line-join:round;
       #road, #bridge { line-cap: round; }
-      [zoom>=15] { line-width:2.5; line-color: #eee; }
-      [zoom>=16] { line-width:4; }
+      [zoom>=15] { line-width: 3.5; line-color: #fff; }
+      [zoom>=16] { line-width: 9; line-color: #fff; }
     }
     [class='service'][zoom>=16], {
       line-color: @service;
       line-join:round;
       #road, #bridge { line-cap: round; }
-      [zoom>=16] { line-width:2; line-color:#fff; }
+      [zoom>=16] { line-width: 9; line-color:#fff; }
     }
     [class='major_rail'] {
       line-width: 0.4;

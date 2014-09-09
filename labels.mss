@@ -167,7 +167,7 @@
    [zoom=8] { 
       text-fill: #000;
       text-face-name: @serif_bd;
-      text-size: 20;
+      text-size: 18;
       text-wrap-width: 140;
       text-character-spacing: 0;
       text-halo-radius: 2;
@@ -175,15 +175,15 @@
    [zoom=9] { 
       text-fill: #000;
       text-face-name: @serif_bd;
-      text-size: 24;
-      text-wrap-width: 140;
+      text-size: 18;
+      text-wrap-width: 160;
       text-character-spacing: 0;
       text-halo-radius: 2;
     }
    [zoom=10] { 
       text-fill: #000;
       text-face-name: @serif_bd;
-      text-size: 26;
+      text-size: 16;
       text-wrap-width: 140;
       text-character-spacing: 0;
       text-halo-radius: 2;
@@ -191,7 +191,7 @@
    [zoom=11] { 
       text-fill: #000;
       text-face-name: @serif_bd;
-      text-size: 28;
+      text-size: 18;
       text-wrap-width: 140;
       text-character-spacing: 0;
       text-halo-radius: 2;
@@ -199,7 +199,7 @@
    [zoom>=12] { 
       text-fill: #000;
       text-face-name: @serif_bd;
-      text-size: 28;
+      text-size: 22;
       text-wrap-width: 200;
       text-line-spacing: -8;
       text-halo-radius: 2.5;
@@ -250,8 +250,8 @@
       }
     [zoom=14] { 
       text-size: 13; 
-      text-halo-radius: 2; 
-      text-fill: #333;
+      text-halo-radius: 1.75; 
+      text-fill: #000;
       text-line-spacing: -3;
       text-face-name:	@sans_it;
       text-wrap-width: 180;
@@ -261,13 +261,14 @@
       text-wrap-width: 180; 
       text-character-spacing: 1; 
       text-halo-radius: 2;
-      text-fill: #888;
+      text-fill: #000;//#888;
       text-line-spacing: -5;
     }
     [zoom>=16] { 
       text-size: 18; 
       text-character-spacing: 2; 
       text-halo-radius: 2; 
+      text-fill: #000;
     }
   }
 }
@@ -301,27 +302,28 @@
     text-halo-rasterizer: fast;
     text-wrap-width: 70;
     text-line-spacing:	-1.5;
+    text-allow-overlap: false;
     // POI labels with an icon need to be offset:
     [maki!=null] { text-dy: 8; }
     [zoom>=13] {
-      text-size: 10;
+      text-size: 9;
       text-line-spacing: -2;
-      text-fill: #000;
+      text-fill: #888;
       }
     [zoom=15] {
-      text-size: 10;
+      text-size: 9;
       text-line-spacing: -2;
-      text-fill: #666;
+      //text-fill: #666;
       }
     [zoom>=16] {
       text-size: 11;
       text-line-spacing: -2;
-      text-fill: #666;
+      //text-fill: #666;
       }
     [zoom>=17] {
-      text-size: 12;
+      text-size: 11;
       text-line-spacing: -2;
-      text-fill: #666;
+      //text-fill: #666;
       }
   }
 }
@@ -359,7 +361,7 @@
     text-name: @name;
     text-face-name: @sans_md;//@sans_bd;
     text-placement: line;  // text follows line path
-    text-halo-fill: #fff;
+    text-halo-fill: #666;//fadeout(#fff,50);
     text-size: 8;
     text-character-spacing: 1;
     text-avoid-edges: true;  // prevents clipped labels at tile edges
@@ -371,18 +373,28 @@
     text-fill: #333;
     text-min-padding: 5;
     [zoom=14] { 
-      text-size: 8.5;
+      text-size: 8;
       text-halo-radius: 1;
-      text-fill: #555;
+      text-fill: #fff;//#555;
+      text-halo-fill: #444;//fadeout(#fff,50);
       }
     [zoom=15] { 
-      text-size: 11;
-      text-halo-radius: 1.5;
-      text-fill: #444;
+      text-size: 10;
+      text-halo-radius: 1;
+      text-fill: #fff;//#444;
+      text-halo-fill: #444;//fadeout(#fff,80);
       }
-    [zoom>=16] { 
+    [zoom=16] { 
       text-size: 13;      
-      text-halo-radius: 2;
+      text-halo-radius: 1.5;
+      text-halo-fill: #333;//fadeout(#fff,50);
+      text-fill: #fff;
+      }
+     [zoom>=17] { 
+      text-size: 13;      
+      text-halo-radius: 1;
+      text-halo-fill: #333;//fadeout(#fff,50);
+      text-fill: #fff;
       }
     }
   [class='street'][zoom>=15], [class='street_limited'][zoom>=15] {
