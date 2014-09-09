@@ -32,7 +32,8 @@
 @sans_bk: 'Meta SC Offc Pro Black', @fallback;
 @sans_it: 'Meta SC Offc Pro Normal Italic', @fallback;
 @sans_it_bd: 'Meta SC Offc Pro Bold Italic', @fallback;
-
+@sans_it_bd: 'Meta SC Offc Pro Bold Italic', @fallback;
+@sans-shield: 'Kievit SC Offc Pro Black', @fallback;
 /*
 @sans: 'Meta Offc Pro Normal', @fallback;
 @sans_bd: 'Meta Offc Pro Medium', @fallback;
@@ -195,9 +196,9 @@
   }
   [type='village'] {
     text-size: 12;
-    [zoom>=12] { text-size: 14; }
-    [zoom>=14] { text-size: 18; }
-    [zoom>=16] { text-size: 22; }
+    //[zoom>=12] { text-size: 14; }
+    [zoom>=14] { text-size: 14; }
+    [zoom>=16] { text-size: 18; }
   }
   [type='hamlet'],
   [type='suburb'],
@@ -214,8 +215,14 @@
     [zoom=13] {
       text-size: 10;
       text-halo-radius: 1.5;
+      text-fill: #000;
       }
-    [zoom>=14] { text-size: 12; text-halo-radius: 1.5; }
+    [zoom=14] { 
+      text-size: 15; 
+      text-halo-radius: 2; 
+      text-fill: #666;
+      text-line-spacing: -9;
+    }
     [zoom>=15] { 
       text-size: 14; 
       text-wrap-width: 180; 
@@ -257,6 +264,16 @@
     text-line-spacing:	-1.5;
     // POI labels with an icon need to be offset:
     [maki!=null] { text-dy: 8; }
+    [zoom>=13] {
+      text-size: 10;
+      text-line-spacing: -2;
+      text-fill: #000;
+      }
+    [zoom>=18] {
+      text-size: 14;
+      text-line-spacing: -2;
+      text-fill: #000;
+      }
   }
 }
 
@@ -269,15 +286,22 @@
   // Custom shield png files can be created using make_shields.sh
   // in _src folder
   shield-name: [ref];
-  shield-face-name: @serif_md;
-  shield-fill: #000;
-  shield-min-distance: 60;
-  shield-min-padding: 8;  // prevents clipped shields at tile edges
-  shield-size: 8;
+  shield-face-name: @sans-shield;
+  shield-fill: #fff;
+  shield-min-distance: 50;
+  shield-min-padding: 12;  // prevents clipped shields at tile edges
+  shield-size: 9;
   shield-file: url('shield/motorway_sm_[reflen].png');
+  [zoom>=10] {
+    shield-min-distance: 20;
+    }
+  [zoom>=12] {
+    shield-min-distance: 50;
+    }
   [zoom>=15] {
-    shield-size: 10;
+    shield-size: 12;
     shield-file: url('shield/motorway_lg_[reflen].png');
+    shield-min-distance: 80;
   }
 }
 
@@ -287,7 +311,7 @@
     text-face-name: @sans_bd;
     text-placement: line;  // text follows line path
     text-halo-fill: #fff;
-    text-size: 7;
+    text-size: 8;
     text-character-spacing: 1;
     text-avoid-edges: true;  // prevents clipped labels at tile edges
     text-halo-radius: 1;
@@ -296,13 +320,26 @@
     text-min-distance: 100;
     text-allow-overlap: false;
     text-fill: #333;
+    text-min-padding: 5;
+    [zoom=14] { 
+      text-size: 10.5;
+      text-halo-radius: 1.75;
+      }
+    [zoom=15] { 
+      text-size: 12;
+      text-halo-radius: 2;
+      }
+    [zoom>=16] { 
+      text-size: 14;      
+      text-halo-radius: 2;
+      }
     }
-  [class='street'][zoom>=14], [class='street_limited'][zoom>=15] {
+  [class='street'][zoom>=15], [class='street_limited'][zoom>=15] {
   text-name: @name;
   text-placement: line;
-  text-face-name: @serif_bd;
+  text-face-name: @sans_bd;
   text-transform: uppercase;
-  text-fill: #999;
+  text-fill: #444;
   text-halo-fill: #eee;
   text-halo-radius: 0.75;
   text-halo-rasterizer: fast;
@@ -342,7 +379,6 @@
 
 // ---------------------------------------------------------------------
 // House numbers
-
 #housenum_label[zoom>=18] {
   text-name: [house_num];
   text-face-name: @serif_it;

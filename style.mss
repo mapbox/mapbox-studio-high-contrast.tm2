@@ -123,8 +123,10 @@ Map {
 
 #landuse[zoom>=11] {
   [class='park'], [class='cemetery'] { 
-    polygon-pattern-file: url('img/halftone2.png');
-    polygon-pattern-opacity: 0.3;
+    //polygon-pattern-file: url('img/halftone2.png');
+    //polygon-pattern-opacity: 0.3;
+    polygon-fill: #ccc;
+    polygon-opacity: 0.45;
   }
   [class='hospital'][zoom>13],[class='school'][zoom>13] { 
 	polygon-fill: #ccc;
@@ -132,7 +134,8 @@ Map {
   }
   [class='wood'] { 
     polygon-fill: #ccc;
-    polygon-pattern-file: url('img/halftone2-transparent.png');
+    polygon-opacity: 0.6;
+    //polygon-pattern-file: url('img/halftone2-transparent.png');
   }
     ::overlay {
     // Landuse classes look better as a transparent overlay.
