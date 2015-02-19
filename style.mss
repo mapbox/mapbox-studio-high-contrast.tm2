@@ -3,7 +3,6 @@
 @water: #fff;
 @land: #fff;
 
-
 Map {
   background-color: @land;
 }
