@@ -10,8 +10,8 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -77.02703475952148
-  - 38.898848649272885
+  - -74.0067
+  - 40.7211
   - 13
 description: ''
 format: "png8:m=h"
@@ -20,7 +20,7 @@ layers: null
 maxzoom: 22
 minzoom: 0
 name: High Contrast
-source: "mapbox:///mapbox.mapbox-terrain-v1,mapbox.mapbox-streets-v5"
+source: "mapbox:///mapbox.mapbox-terrain-v1,mapbox.mapbox-streets-v6"
 styles: 
   - style.mss
   - road.mss
