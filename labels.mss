@@ -336,7 +336,7 @@
   shield-name: "[ref].replace('·', '\n')";
   shield-size: 9;
   shield-line-spacing: -4;
-  shield-file: url('img/shield2/[shield]-[reflen].svg');
+  shield-file: url('img/shield/[shield]-[reflen].svg');
   shield-face-name: @sans_md;
   shield-fill: #333;
   shield-character-spacing: -1;

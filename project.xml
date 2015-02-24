@@ -2812,20 +2812,20 @@
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([class] = 'motorway') and ([localrank] = 1) and ([reflen] &lt;= 6)</Filter>
-    <ShieldSymbolizer placement="point" avoid-edges="false" size="9" line-spacing="-4" file="img/shield2/[shield]-[reflen].svg" fontset-name="fontset-7" fill="#333333" character-spacing="-1" ><![CDATA[[ref].replace('·', '\n')]]></ShieldSymbolizer>
+    <ShieldSymbolizer placement="point" avoid-edges="false" size="9" line-spacing="-4" file="img/shield/[shield]-[reflen].svg" fontset-name="fontset-7" fill="#333333" character-spacing="-1" ><![CDATA[[ref].replace('·', '\n')]]></ShieldSymbolizer>
   </Rule>
 </Style>
 <Style name="road_label-shield-ln" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([reflen] &lt;= 6)</Filter>
-    <ShieldSymbolizer minimum-distance="100" transform="scale(1.25,1.25)" size="10.5" placement="line" spacing="400" avoid-edges="true" line-spacing="-4" file="img/shield2/[shield]-[reflen].svg" fontset-name="fontset-7" fill="#333333" character-spacing="-1" ><![CDATA[[ref].replace('·', '\n')]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="100" transform="scale(1.25,1.25)" size="10.5" placement="line" spacing="400" avoid-edges="true" line-spacing="-4" file="img/shield/[shield]-[reflen].svg" fontset-name="fontset-7" fill="#333333" character-spacing="-1" ><![CDATA[[ref].replace('·', '\n')]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 6)</Filter>
-    <ShieldSymbolizer placement="line" spacing="400" minimum-distance="40" avoid-edges="true" size="9" line-spacing="-4" file="img/shield2/[shield]-[reflen].svg" fontset-name="fontset-7" fill="#333333" character-spacing="-1" ><![CDATA[[ref].replace('·', '\n')]]></ShieldSymbolizer>
+    <ShieldSymbolizer placement="line" spacing="400" minimum-distance="40" avoid-edges="true" size="9" line-spacing="-4" file="img/shield/[shield]-[reflen].svg" fontset-name="fontset-7" fill="#333333" character-spacing="-1" ><![CDATA[[ref].replace('·', '\n')]]></ShieldSymbolizer>
   </Rule>
 </Style>
 <Layer name="road_label"
