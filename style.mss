@@ -145,20 +145,20 @@ Map {
     comp-op: hard-light;
     polygon-clip: false;
     polygon-simplify: 7;
-    [class='full_shadow'], [class='medium_shadow'] {
+    [class='shadow'] {
       polygon-fill: #000;
-      polygon-opacity: 0.12;
-      [zoom>=15][zoom<=16] { polygon-opacity: 0.095; }
-      [zoom>=17][zoom<=18] { polygon-opacity: 0.075; }
+      polygon-opacity: 0.06;
+      [zoom>=15][zoom<=16] { polygon-opacity: 0.05; }
+      [zoom>=17][zoom<=18] { polygon-opacity: 0.03; }
       [zoom>=18] { polygon-opacity: 0.0045; }
     }
-    [class='medium_highlight'] {
+    [class='highlight'] {
       polygon-fill: #fff;
-      polygon-opacity: 0.2;
+      polygon-opacity: 0.12;
       polygon-gamma: 50;
-      [zoom>=15][zoom<=16] { polygon-opacity: 0.3; }
-      [zoom>=17][zoom<=18] { polygon-opacity: 0.2; }
-      [zoom>=18] { polygon-opacity: 0.1; }
+      [zoom>=15][zoom<=16] { polygon-opacity: 0.09; }
+      [zoom>=17][zoom<=18] { polygon-opacity: 0.06; }
+      [zoom>=18] { polygon-opacity: 0.03; }
     }
   }
   ::1 { image-filters: agg-stack-blur(2,2); }
