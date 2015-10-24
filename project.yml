@@ -1,4 +1,5 @@
 _prefs: 
+  mapid: mtirwin.c75340c4
   saveCenter: true
 _properties: 
   bridge: 
@@ -10,16 +11,16 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -77.5821
-  - 41.1483
-  - 15
+  - 10.7278
+  - 45.8836
+  - 13
 description: ''
 format: "png8:m=h"
 interactivity_layer: ''
 layers: null
 maxzoom: 22
 minzoom: 0
-name: High Contrast
+name: high-contrast-test
 source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v6"
 styles: 
   - style.mss

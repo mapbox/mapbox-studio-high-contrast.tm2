@@ -5,11 +5,11 @@
 <Parameters>
   <Parameter name="attribution"><![CDATA[<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
-  <Parameter name="center">-77.5821,41.1483,15</Parameter>
+  <Parameter name="center">10.7278,45.8836,13</Parameter>
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
-  <Parameter name="name"><![CDATA[High Contrast]]></Parameter>
+  <Parameter name="name"><![CDATA[high-contrast-test]]></Parameter>
   <Parameter name="source"><![CDATA[mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v6]]></Parameter>
 </Parameters>
 
@@ -54,13 +54,13 @@
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([class] = 'highlight')</Filter>
-    <PolygonSymbolizer fill-opacity="0.15" fill="#ffffff" gamma="50" clip="false" simplify="7" />
+    <PolygonSymbolizer fill-opacity="0.09" fill="#ffffff" gamma="50" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([class] = 'shadow')</Filter>
-    <PolygonSymbolizer fill-opacity="0.095" fill="#000000" clip="false" simplify="7" />
+    <PolygonSymbolizer fill-opacity="0.05" fill="#000000" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -73,13 +73,13 @@
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([class] = 'highlight')</Filter>
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.2" gamma="50" clip="false" simplify="7" />
+    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.12" gamma="50" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([class] = 'shadow')</Filter>
-    <PolygonSymbolizer fill="#000000" fill-opacity="0.12" clip="false" simplify="7" />
+    <PolygonSymbolizer fill="#000000" fill-opacity="0.06" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -92,13 +92,13 @@
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'highlight')</Filter>
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.2" gamma="50" clip="false" simplify="7" />
+    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.12" gamma="50" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'shadow')</Filter>
-    <PolygonSymbolizer fill="#000000" fill-opacity="0.12" clip="false" simplify="7" />
+    <PolygonSymbolizer fill="#000000" fill-opacity="0.06" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
@@ -111,13 +111,13 @@
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([class] = 'highlight')</Filter>
-    <PolygonSymbolizer fill-opacity="0.1" fill="#ffffff" gamma="50" clip="false" simplify="7" />
+    <PolygonSymbolizer fill-opacity="0.06" fill="#ffffff" gamma="50" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([class] = 'shadow')</Filter>
-    <PolygonSymbolizer fill-opacity="0.075" fill="#000000" clip="false" simplify="7" />
+    <PolygonSymbolizer fill-opacity="0.03" fill="#000000" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -129,7 +129,7 @@
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <Filter>([class] = 'highlight')</Filter>
-    <PolygonSymbolizer fill-opacity="0.05" fill="#ffffff" gamma="50" clip="false" simplify="7" />
+    <PolygonSymbolizer fill-opacity="0.03" fill="#ffffff" gamma="50" clip="false" simplify="7" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
