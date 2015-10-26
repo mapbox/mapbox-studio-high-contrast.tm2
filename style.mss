@@ -3,6 +3,11 @@
 @water: #fff;
 @land: #fff;
 
+@fill1: #fff;
+@fill2: #bbb;
+@fill3: #777;
+@fill4: #000;
+
 Map {
   background-color: @land;
 }
@@ -11,7 +16,7 @@ Map {
 // Political boundaries
 #admin {
 	line-width: 0.2;
-	line-color: #000;
+	line-color: @fill4;
   [maritime=1] {
     // downplay boundaries that are over water
     line-color: @water;
@@ -28,17 +33,17 @@ Map {
   // States / Provices / Subregions
   [admin_level>=3] {
 	line-width: 0.2;
-	line-color: #000;
+	line-color: @fill4;
     [zoom=6] { line-width: 0.6; }
     [zoom=7] { 
       line-width: 1.5;
-	  line-color: #686868;
+	  line-color: @fill3;
 	  line-dasharray: 1,5;
 	  line-cap: round;
     }
     [zoom>=8] {
 	line-width: 2;
-	line-color: #4d4d4d;
+	line-color: @fill3;
 	line-dasharray: 1,5;
 	line-cap: round;
     }
@@ -49,10 +54,11 @@ Map {
 // ---------------------------------------------------------------------
 // Water Features 
 #water {
-  polygon-fill: #999;
+  polygon-fill: @fill2;
   polygon-pattern-file: url('img/patterns/halftone2.png');
   polygon-pattern-alignment: global;
-  polygon-pattern-opacity: 0.3;
+  polygon-pattern-opacity: 0.15;
+  polygon-pattern-gamma: 1;
   // Map tiles are 256 pixels by 256 pixels wide, so the height 
   // and width of tiling pattern images must be factors of 256. 
   //polygon-pattern-file: url(pattern/wave.png);
@@ -66,13 +72,13 @@ Map {
     // light overlay that is offset slightly south. It also
     // create a slight highlight of the land along the
     // southern edge of any water body.
-    polygon-fill: #fff;
+    polygon-fill: @fill3;
+    polygon-opacity: 0.25;
     comp-op: soft-light;
     image-filters: agg-stack-blur(2,2);
     polygon-geometry-transform: translate(0,1);
     polygon-clip: false;
   }
-  /**/
 }
 
 #waterway {
@@ -94,9 +100,10 @@ Map {
   [class='stream_intermittent'] { line-dasharray: 6,2,2,2; }
 }
 
+
 // ---------------------------------------------------------------------
 // Aeroways 
-#aeroway [zoom>=12] {
+#aeroway[zoom>=12] {
   ['mapnik::geometry_type'=2] {
     line-color: @land * 0.96;
     [type='runway'] { line-width: 5; }    
@@ -113,26 +120,25 @@ Map {
   }
 }
 
-
 // ---------------------------------------------------------------------
 // Landuse areas 
 #landuse[zoom>=11] {
   [class='park'], [class='cemetery'] { 
-    polygon-fill: #ccc;
+    polygon-fill: @fill2;
     polygon-opacity: 0.45;
   }
   [class='hospital'][zoom>13],[class='school'][zoom>13] { 
-	polygon-fill: #ccc;
+    polygon-fill: @fill2;
     polygon-opacity: 0.3;
   }
   [class='wood'] { 
-    polygon-fill: #ccc;
+    polygon-fill: @fill2;
     polygon-opacity: 0.6;  }
     ::overlay {
-    // Landuse classes look better as a transparent overlay.
     opacity: 0.05;
     }
 }
+
 
 // ---------------------------------------------------------------------
 // Terrain //
@@ -146,33 +152,47 @@ Map {
     polygon-clip: false;
     polygon-simplify: 7;
     [class='shadow'] {
-      polygon-fill: #000;
+      polygon-fill: @fill4;
       polygon-opacity: 0.06;
       [zoom>=15][zoom<=16] { polygon-opacity: 0.05; }
       [zoom>=17][zoom<=18] { polygon-opacity: 0.03; }
       [zoom>=18] { polygon-opacity: 0.0045; }
-    }
+      }
     [class='highlight'] {
-      polygon-fill: #fff;
+      polygon-fill: @fill1;
       polygon-opacity: 0.12;
       polygon-gamma: 50;
       [zoom>=15][zoom<=16] { polygon-opacity: 0.09; }
       [zoom>=17][zoom<=18] { polygon-opacity: 0.06; }
       [zoom>=18] { polygon-opacity: 0.03; }
+      }
+    ::1 { image-filters: agg-stack-blur(2,2); }
+    ::2 { image-filters: agg-stack-blur(8,8); }
+    ::3 { image-filters: agg-stack-blur(16,16); }
+    ::4 { image-filters: agg-stack-blur(32,32); }
     }
   }
-  ::1 { image-filters: agg-stack-blur(2,2); }
-  ::2 { image-filters: agg-stack-blur(8,8); }
-  ::3 { image-filters: agg-stack-blur(16,16); }
-  ::4 { image-filters: agg-stack-blur(32,32); }
+
+  
+  
+#landuse[class='pitch'],
+#landuse[class='sand'] { 
+  polygon-fill: mix(@land,@fill4,90);
 }
+
+#landuse[class='hospital'],
+#landuse[class='industrial'],
+#landuse[class='school'] { 
+  polygon-fill: mix(@land,@fill1,95);
+}
+
 
 // ==================================================================
 // CONTOURS
 // ================================================================== 
 
 #contour {
-  line-color: #ccc;
+  line-color: @fill2;
   line-opacity: 0.75;
   }
 
@@ -189,13 +209,14 @@ Map {
 }
 
 
+
 // ---------------------------------------------------------------------
 // Buildings 
 
 #building {
   [zoom>=14] {
   line-width: 0.5; 
-  line-color: #999;
+  line-color: @fill3;
   }
   [zoom>=16] {
 	line-width: 0.5; 
@@ -207,3 +228,4 @@ Map {
     }
   }
 
+/**/

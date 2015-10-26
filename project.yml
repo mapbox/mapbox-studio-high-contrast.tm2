@@ -1,5 +1,6 @@
 _prefs: 
-  saveCenter: true
+  mapid: null
+  saveCenter: false
 _properties: 
   bridge: 
     "group-by": layer
@@ -10,19 +11,42 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - 10.7278
-  - 45.8836
-  - 13
+  - -77.0413
+  - 38.8985
+  - 14
 description: ''
 format: "png8:m=h"
 interactivity_layer: ''
-layers: null
+layers: 
+  - landcover
+  - landuse
+  - hillshade
+  - waterway
+  - water
+  - aeroway
+  - barrier_line
+  - building
+  - landuse_overlay
+  - tunnel
+  - road
+  - bridge
+  - admin
+  - country_label
+  - marine_label
+  - state_label
+  - place_label
+  - water_label
+  - poi_label
+  - road_label
+  - waterway_label
+  - housenum_label
 maxzoom: 22
 minzoom: 0
-name: High Contrast
+name: High Contrast v3
 source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v6"
 styles: 
   - style.mss
   - road.mss
+  - terrain.mss
   - labels.mss
 template: ''
