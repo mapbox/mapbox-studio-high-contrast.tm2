@@ -1,10 +1,20 @@
 // Basic color palette, from which variations will be derived.
-@motorway:          #000;
-@motorway_case:      @land;
+// ---------------------------------------------------------------------
+// Common Colors
+@water: #fff;
+@land: #fff;
+
+@fill1: #fff;
+@fill2: #bbb;
+@fill3: #777;
+@fill4: #000;
+
+@motorway:           @fill4;
+@motorway_case:      @fill1;
 @main:              @motorway;
-@main_case:          @land;
+@main_case:          @fill1;
 @street:            #888;
-@street_case:        @land;
+@street_case:        @fill1;
 @service:		    #ccc;
 @service_case:	     #ccc;
 @path:			    #fff;
@@ -25,6 +35,12 @@
 #road, #bridge, #tunnel {
   // casing/outlines & single lines
   ::case[zoom>=6]['mapnik::geometry_type'=2] {
+    [class='service'][zoom>=16], {
+      line-color: @fill3;
+      line-join:round;
+      #road, #bridge { line-cap: round; }
+      [zoom>=16] { line-width: 8; }
+    }
     [class='motorway'] {
       line-join:round;
       line-color: @motorway_case;
@@ -66,19 +82,31 @@
       line-join:round;
       #road { line-cap: round; }
       #tunnel { line-dasharray:3,2; }
-      line-color: #444;
+      line-color: @motorway;
       [zoom=7] { line-width: 0; }
       [zoom=12] { line-width: 0; }
       [zoom=13] { line-width: 0; }
       [zoom=14] { line-width: 0; }
-      [zoom>=15] { line-width: 5; line-color: #888;}
+      [zoom>=15] { line-width: 5; line-color: @fill3; }
       [zoom>=16] { line-width: 10; }
-    }
-      
+    } 
   }
   
   // fill/inlines
   ::fill[zoom>=4]['mapnik::geometry_type'=2] {
+    [class='service'][zoom>=16], {
+      line-color: @service;
+      line-join:round;
+      #road, #bridge { line-cap: round; }
+      [zoom>=16] { line-width: 7; line-color: @fill1; }
+    }
+    [class='street_limited'][zoom>=15], {
+      line-color: @street;
+      line-join:round;
+      #road, #bridge { line-cap: round; }
+      [zoom>=15] { line-width: 3.5; line-color: @fill1; }
+      [zoom>=16] { line-width: 9; line-color: @fill1; }
+    }
     [class='motorway'][zoom>=5] {
       line-join:round;
       #road, #bridge { line-cap:round; }
@@ -105,39 +133,26 @@
     [class='main'][zoom>=6] {
       line-join:round;
       #road, #bridge { line-cap: round; }
-      line-color: lighten(@main,15);
+      line-color: @fill4;
       #tunnel { line-color:lighten(@main,25); }
-      [zoom=6] { line-width: 0.5; line-color: lighten(@main,45);}
+      [zoom=6] { line-width: 0.5; }
       [zoom>=7] { line-width: 0.25; }
-      [zoom>=9] { line-width: 0.5; line-color: lighten(@main,45);}
+      [zoom>=9] { line-width: 0.5; }
       [zoom>=11] { line-width: 0.75; }
-      [zoom=12] { line-width: 0.75; line-color: lighten(@main,30);}
-      [zoom=13] { line-width: 1.5; line-color: lighten(@main,15);}
-      [zoom=14] { line-width: 3; line-color: lighten(@main,15); }
-      [zoom=15] { line-width: 4.5; line-color: lighten(@main,20);}
-      [zoom>=16] { line-width: 8; line-color: lighten(@main,20);}
+      [zoom=12] { line-width: 0.75; }
+      [zoom=13] { line-width: 1.5; }
+      [zoom=14] { line-width: 3; }
+      [zoom=15] { line-width: 4.5; }
+      [zoom>=16] { line-width: 8; }
     }
     [class='street'][zoom>=12], {
-      line-color: #ccc;//#fff;
+      line-color: @fill2;
       line-join:round;
       #road, #bridge { line-cap: round; }
-      [zoom=12] { line-width: 0.5; line-color: #fff; }
+      [zoom=12] { line-width: 0.5; line-color: @fill1; }
       [zoom>=14] { line-width: 1.5; }
-      [zoom=15] { line-width: 3.5; line-color: #fff; }
-      [zoom>=16] { line-width: 9; line-color: #fff; }
-    }
-    [class='street_limited'][zoom>=15], {
-      line-color: @street;
-      line-join:round;
-      #road, #bridge { line-cap: round; }
-      [zoom>=15] { line-width: 3.5; line-color: #fff; }
-      [zoom>=16] { line-width: 9; line-color: #fff; }
-    }
-    [class='service'][zoom>=16], {
-      line-color: @service;
-      line-join:round;
-      #road, #bridge { line-cap: round; }
-      [zoom>=16] { line-width: 9; line-color:#fff; }
+      [zoom=15] { line-width: 3.5; line-color: @fill1; }
+      [zoom>=16] { line-width: 9; line-color: @fill1; }
     }
     [class='major_rail'] {
       line-width: 0.4;
