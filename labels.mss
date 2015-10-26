@@ -406,7 +406,9 @@
       text-fill: @fill1;
       }
     }
-  [class='street'][zoom>=15], [class='street_limited'][zoom>=15] {
+  [class='street'][zoom>=15], [class='street_limited'][zoom>=15],
+  [class='service'] 
+    {
   text-name: @name;
   text-placement: line;
   text-face-name: @sans_bd;
@@ -463,9 +465,10 @@
 // House numbers
 #housenum_label[zoom>=18] {
   text-name: [house_num];
-  text-face-name: @serif_it;
-  text-fill: @fill2;
+  text-face-name: @sans_it;
+  text-fill: @fill3;
   text-size: 8;
+  text-character-spacing: -1;
   [zoom=19] { text-size: 10; }
-  [zoom>=20] { text-size: 12; }
+  [zoom>=20] { text-size: 12; text-fill: lighten(@fill4,20); }
 }

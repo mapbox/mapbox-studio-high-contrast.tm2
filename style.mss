@@ -223,9 +223,13 @@ Map {
 	polygon-pattern-file: url('img/patterns/stripe_sm.png');
     polygon-pattern-opacity: 0.2;
   }
+  [zoom>=18] {
+    polygon-pattern-opacity: 0.1;
+    }
   ::overlay {
     opacity: 0.05;
     }
+  
   }
 
 /**/
