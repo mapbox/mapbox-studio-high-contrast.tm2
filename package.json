@@ -1,6 +1,6 @@
 {
     "name": "mapbox-studio-high-contrast",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "description": "Default style project for Mapbox Studio.",
     "main": "./package.json"
 }
