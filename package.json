@@ -2,5 +2,9 @@
   "name": "@mapbox/mapbox-studio-high-contrast",
   "version": "3.0.4",
   "description": "Default style project for Mapbox Studio.",
-  "main": "./package.json"
+  "main": "./package.json",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mapbox/mapbox-studio-high-contrast.tm2.git"
+  }
 }
